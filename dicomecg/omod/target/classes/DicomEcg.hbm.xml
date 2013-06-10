@@ -38,7 +38,9 @@ Java class name mapping to MysSQL table column name
 		<property name="uploadTime" type="java.lang.String" column="upload_time"
 			not-null="true" length="255">
 		</property>
-	
+		<property name="uuid" type="java.lang.String" column="uuid"
+			not-null="true" length="255">
+		</property>		
 		<many-to-one name="attributeId" class="ecg_attribute" column="attribute_id"></many-to-one>
 		<many-to-one name="confirmId"	class="ecg_confirm"	column="confirm_id"></many-to-one>
 		

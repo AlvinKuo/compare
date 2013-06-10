@@ -13,7 +13,8 @@ public class DicomEcgAttribute extends BaseOpenmrsObject implements Serializable
 	private static final long serialVersionUID = 1L;
 	
 	private Integer ecg_attribute_id;
-	private Integer patiendId;	
+	private Integer patiendId;
+	private String 	age;
 	private String 	gender;
 	private String 	height;
 	private String 	weight;
@@ -47,6 +48,14 @@ public class DicomEcgAttribute extends BaseOpenmrsObject implements Serializable
 
 	public Integer getPatiendId() {
 		return patiendId;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	public String getAge() {
+		return age;
 	}
 	
 	public void setGender(String gender) {

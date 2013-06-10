@@ -24,7 +24,7 @@ public class DicomEcg extends BaseOpenmrsObject implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer id;
+	private Integer ecg_id;
 	private Integer patiendId;
 	private String 	identifier;
 	private String 	patientName;
@@ -33,26 +33,27 @@ public class DicomEcg extends BaseOpenmrsObject implements Serializable {
 	private String	filename;
 	private String	measureTime;
 	private String 	uploadTime;
-
+	private String 	uuid;
+	private DicomEcgAttribute dicomEcgAttribute;
+	//private DicomEcgConfirm dicomEcgConfirm;
 	
-	@Override
-	public Integer getId() {
-		// TODO Auto-generated method stub
-		return id;
+	public DicomEcg(){
+		
 	}
-
-	@Override
+	public void setEcgId(Integer ecg_id) {
+		this.ecg_id = ecg_id;
+	}
+	
+	public Integer getEcgId() {
+		return ecg_id;
+	}
+	
 	public void setId(Integer id) {
-		// TODO Auto-generated method stub
-		this.id = id;
-	}
-	
-	public void setPatiendId(Integer patiendId) {
-		this.patiendId = patiendId;
+		setEcgId(id);
 	}
 
-	public Integer getPatiendId() {
-		return patiendId;
+	public Integer getId() {
+		return getEcgId();
 	}
 	
 	public void setIdentifier(String identifier) {
@@ -61,6 +62,14 @@ public class DicomEcg extends BaseOpenmrsObject implements Serializable {
 
 	public String getIdentifier() {
 		return identifier;
+	}	
+
+	public void setPatiendId(Integer patiendId) {
+		this.patiendId = patiendId;
+	}
+
+	public Integer getPatiendId() {
+		return patiendId;
 	}
 
 	public void setPatientName(String patientName) {
@@ -110,4 +119,29 @@ public class DicomEcg extends BaseOpenmrsObject implements Serializable {
 	public String getUploadTime() {
 		return uploadTime;
 	}
+
+	public void setUuId(String uuid) {
+		this.uuid = uuid;
+	}
+
+	public String getUuId() {
+		return uuid;
+	}	
+
+	public void setDicomEcgAttribute(DicomEcgAttribute dicomEcgAttribute) {
+		this.dicomEcgAttribute = dicomEcgAttribute;
+	}
+
+	public DicomEcgAttribute getDicomEcgAttribute() {
+		return dicomEcgAttribute;
+	}
+	
+
+/*	public void setDicomEcgConfirm(DicomEcgConfirm dicomEcgConfirm) {
+		this.dicomEcgConfirm = dicomEcgConfirm;
+	}
+
+	public DicomEcgConfirm getDicomEcgConfirm() {
+		return dicomEcgConfirm;
+	}*/
 }
