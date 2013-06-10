@@ -38,12 +38,6 @@
         	<column name="upload_time" type="varchar(255)">
         		<constraints nullable="true" />
         	</column>
-        	<column name="attribute_id" type="int" autoIncrement="true">
-        		<constraints nullable="true"/>
-        	</column>
-        	<column name="confirm_id" type="int" autoIncrement="true">
-        		<constraints nullable="true"/>
-        	</column>
     	</createTable>
     	
     	<createTable tableName="ecg_attribute">
@@ -91,21 +85,8 @@
     		</column>
     		<column name="filename" type="varchar(255)">
     			<constraints nullable="true" />
-    		</column>
-    		<column name="concept_id" type="int">
-    			<constraints nullable="true" />
-    		</column>    	
-    	</createTable>
-    	     	
-    	<addForeignKeyConstraint constraintName="ecg_attribute_id_fk"
-    	baseTableName="ecg" baseColumnNames="attribute_id"
-    	referencedTableName="ecg_attribute" referencedColumnNames="ecg_attribute_id"
-    	onDelete="CASCADE" onUpdate="CASCADE"/>    	
-    	<addForeignKeyConstraint constraintName="ecg_confirm_id_fk"
-    	baseTableName="ecg" baseColumnNames="confirm_id"
-    	referencedTableName="ecg_confirm" referencedColumnNames="ecg_confirm_id"
-    	onDelete="CASCADE" onUpdate="CASCADE"/>
-    	
+    		</column>	
+    	</createTable>    	
     </changeSet>
     
 </databaseChangeLog>

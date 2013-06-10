@@ -70,12 +70,10 @@ public class DicomUpload extends HttpServlet {
 		List<PatientIdentifier> PId = UploadEcgService.getPatientID(identifier);
 		Iterator<PatientIdentifier> res= PId.iterator();
 		
-/*		PatientIdentifier px = Context.getPatientService().getPatientIdentifier(5);	
-		Integer p = px.getPatient().getPatientId();	*/	
-		
 		if(res.hasNext()){
 			patiendId = PId.get(0).getPatient().getPatientId();
-			try{
+			
+			try{				
 				DicomEcg UploadEcgData = new DicomEcg();
 				UploadEcgData.setPatiendId(patiendId);
 				UploadEcgData.setIdentifier(identifier);
@@ -84,27 +82,31 @@ public class DicomUpload extends HttpServlet {
 				UploadEcgData.setNurseName(nurseName);
 				UploadEcgData.setFilename(filename);
 				UploadEcgData.setMeasureTime(measureTime);
-				UploadEcgData.setUploadTime(uploadTime);			
-								
-				UploadEcgService.saveDicomEcg(UploadEcgData);
+				UploadEcgData.setUploadTime(uploadTime);								
+				UploadEcgService.saveDicomEcg(UploadEcgData);				
 				flag = true;
-				}catch(Exception e)
+				out.print(patiendId);out.print(identifier);
+				out.print(patientName);out.print(nurseId);
+				out.print(nurseName);out.print(filename);
+				out.print(measureTime);out.print(uploadTime);
+				out.print(flag);out.print(UploadEcgData);
+				
+				}
+			catch(Exception e)
 				{
 					out.print(e.getMessage());
 				}
-			if(flag == true)
-			//if(res.hasNext())
-			{	
-				out.print("Y");	
-				out.print(patiendId);
-				/*out.print(p);out.print(px);*/
-				flag=false;
 			}
-			else
-			{
-				out.print("N");
-				}
-			}
+		if(flag == true)
+		{
+			out.print("Y");	
+			out.print(patiendId);			
+			flag=false;
+		}
+		else
+		{
+			out.print("N");
+			}	
 		
 	}	
 	

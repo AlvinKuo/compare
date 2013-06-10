@@ -67,6 +67,7 @@ public class HibernateDicomEcgDAO implements DicomEcgDAO {
 	public DicomEcg saveDicomEcg(DicomEcg dicomEcg) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().saveOrUpdate(dicomEcg);
+		
 		return dicomEcg;
 	}
 	
